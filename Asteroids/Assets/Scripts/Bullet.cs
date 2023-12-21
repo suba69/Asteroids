@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField]
     private float bulletSpeed = 500.0f;
+    private float maxLifeTime = 5.0f;
 
     private void Awake()
     {
@@ -15,25 +16,12 @@ public class Bullet : MonoBehaviour
     public void Project(Vector2 direction)
     {
         rb.AddForce(direction * this.bulletSpeed);
+
+        Destroy(this.gameObject, this.maxLifeTime);
     }
 
-    private void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (transform.position.y > 5.15f)
-        {
-            Destroy(gameObject);
-        }
-        else if (transform.position.y < -5.15f)
-        {
-            Destroy(gameObject);
-        }
-        else if (transform.position.x > 9.05f)
-        {
-            Destroy(gameObject);
-        }
-        else if (transform.position.x < -9.05f)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(this.gameObject);
     }
 }

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private float turnSpeed = 1.0f;
     private bool thrusting;
     private float turnDirection;
+    public Bullet bullet;
 
     private void Awake()
     {
@@ -25,10 +26,14 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             turnDirection = -1f;
-        }
-        else
+        } else
         {
             turnDirection = 0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            Shoot();
         }
     }
 
@@ -43,5 +48,11 @@ public class Player : MonoBehaviour
         {
             rb.AddTorque(turnDirection * this.turnSpeed);
         }
+    }
+
+    private void Shoot()
+    {
+        Bullet bullet = Instantiate(this.bullet, this.transform.position, this.transform.rotation);
+        bullet.Project(this.transform.up);
     }
 }
