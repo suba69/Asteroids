@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1475456819207775216}
   - component: {fileID: 5393889433108618274}
   - component: {fileID: 6417582118243515677}
-  - component: {fileID: 6310192249193166324}
-  m_Layer: 0
+  - component: {fileID: 1281667060381386889}
+  m_Layer: 6
   m_Name: Asteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6310192249193166324
+--- !u!114 &1281667060381386889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,3 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104471f3f00a1c64189187e78b15760d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 5c611decd01458941a553d55ff4729d0, type: 3}
+  - {fileID: 21300000, guid: ca95782e231395948b619440ce518094, type: 3}
+  - {fileID: 21300000, guid: 768234c363b09714f8de4d94c24431b8, type: 3}
+  - {fileID: 21300000, guid: a3cd0fbdc7685434eb634a6b50f6583f, type: 3}
+  size: 1
+  speed: 10
+  minSize: 0.5
+  maxSize: 1.5

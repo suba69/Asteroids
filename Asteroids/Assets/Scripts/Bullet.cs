@@ -5,7 +5,8 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField]
-    private float bulletSpeed = 500.0f;
+    private float speed = 500.0f;
+    [SerializeField]
     private float maxLifeTime = 5.0f;
 
     private void Awake()
@@ -15,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     public void Project(Vector2 direction)
     {
-        rb.AddForce(direction * this.bulletSpeed);
+        rb.AddForce(direction * this.speed);
 
         Destroy(this.gameObject, this.maxLifeTime);
     }

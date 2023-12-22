@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroids : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
-    private Sprite[] sprites;
-    [SerializeField]
-    private float size;
+    public Sprite[] sprites;
+    public float size;
+    public float speed = 50.0f;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
-    [SerializeField]
-    private float minSize = 0.5f;
-    [SerializeField]
-    private float maxSize = 1.5f;
+    public float minSize = 0.5f;
+    public float maxSize = 1.5f;
+    private float maxLifeTime = 30.0f;
 
     private void Awake()
     {
@@ -29,4 +26,11 @@ public class Asteroids : MonoBehaviour
 
         rb.mass = size;
     }
+
+    public void SetTrajectory(Vector2 direction)
+    {
+        rb.AddForce(direction * this.speed);
+
+        Destroy(this.gameObject, this.maxLifeTime);
+    } 
 }
